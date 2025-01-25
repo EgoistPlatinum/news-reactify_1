@@ -33,7 +33,7 @@ const Main = () => {
     }
   }
 
-  const fetchCategories = async (currentPage) => {
+  const fetchCategories = async () => {
     try {
       const response = await getCategories();
       setCategories(["All", ...response.categories]);
