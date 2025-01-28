@@ -1,5 +1,4 @@
 import {useState} from "react";
-import {PAGE_SIZE} from "../../components/constants/constants.js";
 
 export function useFilters(initialFilters) {
 

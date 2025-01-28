@@ -1,4 +1,3 @@
-import {formatDate} from "../../helpers/formatDate.js";
 import styles from './styles.module.css'
 import {formatTimeAgo} from "../../helpers/formatTimeAgo.js";
 import Image from "../Image/Image.jsx";
