@@ -1,7 +1,7 @@
-import {formatDate} from "../../helpers/formatDate.js";
 import styles from './styles.module.css'
 import {formatTimeAgo} from "../../helpers/formatTimeAgo.js";
 import Image from "../Image/Image.jsx";
+import {withSkeleton} from "../../helpers/hooks/withSkeleton.jsx";
 
 const NewsBanner = ({item}) => {
 
@@ -14,4 +14,6 @@ const NewsBanner = ({item}) => {
   )
 }
 
-export default NewsBanner
+const NewsBannerWithSkeleton = withSkeleton(NewsBanner, 'banner', 1)
+
+export default NewsBannerWithSkeleton
