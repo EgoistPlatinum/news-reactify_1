@@ -1,12 +1,28 @@
 import styles from './styles.module.css'
-import Pagination from "../Pagination/Pagination.jsx";
-import {TOTAL_PAGES} from "../constants/constants.js";
+import {PAGE_SIZE, TOTAL_PAGES} from "../constants/constants.js";
 import NewsList from "../NewsList/NewsList.jsx";
 import NewsFilters from "../NewsFilters/NewsFilters.jsx";
+import {useFilters} from "../../helpers/hooks/useFilters.js";
+import useDebounce from "../../helpers/hooks/useDebounce.jsx";
+import {useFetch} from "../../helpers/hooks/useFetch.js";
+import {getNews} from "../../api/apiNews.js";
+import PaginationWrapper from "../PaginationWrapper/PaginationWrapper.jsx";
 
-const NewsByFilters = ({filters, changeFilters, isLoading, news}) => {
+const NewsByFilters = () => {
 
+  const {filters, changeFilters} = useFilters({
+    page_size: PAGE_SIZE,
+    page_number: 1,
+    category: null,
+    keywords: ''
+  })
 
+  const debounceKeywords = useDebounce(filters.keywords, 1500)
+
+  const {data, isLoading} = useFetch(getNews, {
+    ...filters,
+    keywords: debounceKeywords
+  })
 
   const handleNextPage = () => {
     if (filters.page_number < TOTAL_PAGES) {
@@ -29,13 +45,12 @@ const NewsByFilters = ({filters, changeFilters, isLoading, news}) => {
     <section className={styles.section}>
       <NewsFilters filters={filters} changeFilters={changeFilters}/>
 
-      <Pagination totalPages={TOTAL_PAGES} currentPage={filters.page_number} handleNextPage={handleNextPage}
-                  handlePreviousPage={handlePreviousPage} handlePageClick={handlePageClick}/>
+      <PaginationWrapper top bottom totalPages={TOTAL_PAGES} currentPage={filters.page_number} handleNextPage={handleNextPage}
+                         handlePreviousPage={handlePreviousPage} handlePageClick={handlePageClick}>
 
-      <NewsList isLoading={isLoading} news={news}/>
+        <NewsList isLoading={isLoading} news={data?.news}/>
 
-      <Pagination totalPages={TOTAL_PAGES} currentPage={filters.page_number} handleNextPage={handleNextPage}
-                  handlePreviousPage={handlePreviousPage} handlePageClick={handlePageClick}/>
+      </PaginationWrapper>
     </section>
   )
 }
