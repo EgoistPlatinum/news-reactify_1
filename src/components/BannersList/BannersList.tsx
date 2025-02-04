@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
-import {withSkeleton} from "../../helpers/hooks/withSkeleton.jsx";
-import NewsBanner from "../NewsBanner/NewsBanner.jsx";
+import {withSkeleton} from "../../helpers/hoks/withSkeleton.tsx";
+import NewsBanner from "../NewsBanner/NewsBanner.tsx";
 
 const BannersList = ({banners}) => {
 

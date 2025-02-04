@@ -1,6 +1,6 @@
-import {formatDate} from "../../helpers/formatDate.js";
+import {formatDate} from "../../helpers/formatDate.ts";
 import styles from './styles.module.css'
-import {formatTimeAgo} from "../../helpers/formatTimeAgo.js";
+import {formatTimeAgo} from "../../helpers/formatTimeAgo.ts";
 
 const Image = ({image}) => {
 

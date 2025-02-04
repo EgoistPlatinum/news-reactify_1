@@ -1,12 +1,12 @@
 import styles from './styles.module.css'
-import {PAGE_SIZE, TOTAL_PAGES} from "../constants/constants.js";
-import NewsList from "../NewsList/NewsList.jsx";
-import NewsFilters from "../NewsFilters/NewsFilters.jsx";
-import {useFilters} from "../../helpers/hooks/useFilters.js";
-import useDebounce from "../../helpers/hooks/useDebounce.jsx";
-import {useFetch} from "../../helpers/hooks/useFetch.js";
-import {getNews} from "../../api/apiNews.js";
-import PaginationWrapper from "../PaginationWrapper/PaginationWrapper.jsx";
+import {PAGE_SIZE, TOTAL_PAGES} from "../constants/constants.ts";
+import NewsList from "../NewsList/NewsList.tsx";
+import NewsFilters from "../NewsFilters/NewsFilters.tsx";
+import {useFilters} from "../../helpers/hooks/useFilters.ts";
+import useDebounce from "../../helpers/hooks/useDebounce.tsx";
+import {useFetch} from "../../helpers/hooks/useFetch.ts";
+import {getNews} from "../../api/apiNews.ts";
+import PaginationWrapper from "../PaginationWrapper/PaginationWrapper.tsx";
 
 const NewsByFilters = () => {
 
