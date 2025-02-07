@@ -1,16 +1,21 @@
 import styles from './styles.module.css'
 import {formatTimeAgo} from "../../helpers/formatTimeAgo.ts";
 import Image from "../Image/Image.tsx";
+import {INews} from "../../interfaces";
 
-const NewsBanner = ({item}) => {
+interface Props {
+    item: INews
+}
 
-  return (
-    <div className={styles.banner}>
-      <Image image={item?.image}/>
-      <h3 className={styles.title}>{item.title}</h3>
-      <p className={styles.extra}>{formatTimeAgo(item.published)} by {item.author}</p>
-    </div>
-  )
+const NewsBanner = ({item}: Props) => {
+
+    return (
+        <div className={styles.banner}>
+            <Image image={item?.image}/>
+            <h3 className={styles.title}>{item.title}</h3>
+            <p className={styles.extra}>{formatTimeAgo(item.published)} by {item.author}</p>
+        </div>
+    )
 }
 
 export default NewsBanner

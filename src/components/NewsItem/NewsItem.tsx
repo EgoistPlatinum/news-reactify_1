@@ -1,8 +1,12 @@
 import styles from "./styles.module.css"
 import {formatTimeAgo} from "../../helpers/formatTimeAgo.ts";
+import {INews} from "../../interfaces";
 
+interface Props {
+    item: INews
+}
 
-export default function NewsItem({ item }) {
+export default function NewsItem({ item }: Props): JSX.Element {
 
   return (
     <li className={styles.item}>
@@ -11,7 +15,7 @@ export default function NewsItem({ item }) {
       </div>
       <div className={styles.info}>
         <h3 className={styles.title}>{item.title}</h3>
-        <p className={styles.extra}>{formatTimeAgo(item.publisher)} by {item.author}</p>
+        <p className={styles.extra}>{formatTimeAgo(item.published)} by {item.author}</p>
       </div>
     </li>
   )

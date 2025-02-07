@@ -1,16 +1,21 @@
 import styles from './styles.module.css'
 import {withSkeleton} from "../../helpers/hoks/withSkeleton.tsx";
 import NewsBanner from "../NewsBanner/NewsBanner.tsx";
+import {INews} from "../../interfaces";
 
-const BannersList = ({banners}) => {
+interface Props {
+    banners?: Array<INews> | null
+}
 
-  return (
-    <ul className={styles.banners}>
-      {banners?.map(banner => (
-        <NewsBanner key={banner.id} item={banner} />
-      ))}
-    </ul>
-  )
+const BannersList = ({banners}: Props) => {
+
+    return (
+        <ul className={styles.banners}>
+            {banners?.map(banner => (
+                <NewsBanner key={banner.id} item={banner}/>
+            ))}
+        </ul>
+    )
 }
 
 const BannersListWithSkeleton = withSkeleton(BannersList, 'banner', 10, "row")

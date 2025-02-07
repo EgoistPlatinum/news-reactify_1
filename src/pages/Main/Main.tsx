@@ -4,12 +4,12 @@ import NewsByFilters from "../../components/NewsByFilters/NewsByFilters.tsx";
 
 const Main = () => {
 
-  return (
-    <main className={styles.main}>
-      <LatestNews/>
-      <NewsByFilters/>
-    </main>
-  )
+    return (
+        <main className={styles.main}>
+            <LatestNews/>
+            <NewsByFilters/>
+        </main>
+    )
 }
 
 export default Main

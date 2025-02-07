@@ -1,14 +1,16 @@
-import {formatDate} from "../../helpers/formatDate.ts";
 import styles from './styles.module.css'
-import {formatTimeAgo} from "../../helpers/formatTimeAgo.ts";
 
-const Image = ({image}) => {
+interface Props {
+    image: string
+}
 
-  return (
-    <div className={styles.wrapper}>
-      {image ? <img src={image} alt="news" className={styles.image} /> : null}
-    </div>
-  )
+const Image = ({image}: Props) => {
+
+    return (
+        <div className={styles.wrapper}>
+            {image ? <img src={image} alt="news" className={styles.image}/> : null}
+        </div>
+    )
 }
 
 export default Image

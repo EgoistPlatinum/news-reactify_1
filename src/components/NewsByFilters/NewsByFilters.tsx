@@ -7,52 +7,55 @@ import useDebounce from "../../helpers/hooks/useDebounce.tsx";
 import {useFetch} from "../../helpers/hooks/useFetch.ts";
 import {getNews} from "../../api/apiNews.ts";
 import PaginationWrapper from "../PaginationWrapper/PaginationWrapper.tsx";
+import {NewsApiResponse, ParamsType} from "../../interfaces";
 
 const NewsByFilters = () => {
 
-  const {filters, changeFilters} = useFilters({
-    page_size: PAGE_SIZE,
-    page_number: 1,
-    category: null,
-    keywords: ''
-  })
+    const {filters, changeFilters} = useFilters({
+        page_size: PAGE_SIZE,
+        page_number: 1,
+        category: null,
+        keywords: ''
+    })
 
-  const debounceKeywords = useDebounce(filters.keywords, 1500)
+    const debounceKeywords = useDebounce(filters.keywords, 1500)
 
-  const {data, isLoading} = useFetch(getNews, {
-    ...filters,
-    keywords: debounceKeywords
-  })
+    const {data, isLoading} = useFetch<NewsApiResponse, ParamsType>(getNews, {
+        ...filters,
+        keywords: debounceKeywords
+    })
 
-  const handleNextPage = () => {
-    if (filters.page_number < TOTAL_PAGES) {
-      changeFilters("page_number", filters.page_number + 1)
+    const handleNextPage = () => {
+        if (filters.page_number < TOTAL_PAGES) {
+            changeFilters("page_number", filters.page_number + 1)
+        }
     }
-  }
 
-  const handlePreviousPage = () => {
-    if (filters.page_number > TOTAL_PAGES) {
-      changeFilters("page_number", filters.page_number - 1)
+    const handlePreviousPage = () => {
+        if (filters.page_number > TOTAL_PAGES) {
+            changeFilters("page_number", filters.page_number - 1)
+        }
     }
-  }
 
-  const handlePageClick = (pageNumber) => {
-    changeFilters("page_number", pageNumber)
-  }
+    const handlePageClick = (pageNumber: number) => {
+        changeFilters("page_number", pageNumber)
+    }
 
 
-  return (
-    <section className={styles.section}>
-      <NewsFilters filters={filters} changeFilters={changeFilters}/>
+    return (
+        <section className={styles.section}>
+            {/*@ts-ignore*/}
+            <NewsFilters filters={filters} changeFilters={changeFilters}/>
 
-      <PaginationWrapper top bottom totalPages={TOTAL_PAGES} currentPage={filters.page_number} handleNextPage={handleNextPage}
-                         handlePreviousPage={handlePreviousPage} handlePageClick={handlePageClick}>
+            <PaginationWrapper top bottom totalPages={TOTAL_PAGES} currentPage={filters.page_number}
+                               handleNextPage={handleNextPage}
+                               handlePreviousPage={handlePreviousPage} handlePageClick={handlePageClick}>
 
-        <NewsList isLoading={isLoading} news={data?.news}/>
+                <NewsList isLoading={isLoading} news={data?.news}/>
 
-      </PaginationWrapper>
-    </section>
-  )
+            </PaginationWrapper>
+        </section>
+    )
 }
 
 export default NewsByFilters
