@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 import { ForwardedRef, forwardRef } from 'react'
-import { CategoriesType } from '../../../../entities/category'
+import { CategoriesType } from '@/entities/category'
 
 interface Props {
   categories: Array<CategoriesType>

@@ -1,7 +1,7 @@
 import styles from './styles.module.css'
-import { withSkeleton } from '../../../../shared/hoks/withSkeleton.tsx'
 import NewsBanner from '../../../../entities/news/ui/NewsBanner/NewsBanner.tsx'
-import { INews } from '../../../../entities/news'
+import { INews } from '@/entities/news'
+import { withSkeleton } from '@/shared/hoks/withSkeleton.tsx'
 
 interface Props {
   banners?: Array<INews> | null

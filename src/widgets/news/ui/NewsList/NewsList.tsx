@@ -1,7 +1,7 @@
 import styles from './styles.module.css'
 import NewsItem from '../../../../entities/news/ui/NewsItem/NewsItem.tsx'
-import { withSkeleton } from '../../../../shared/hoks/withSkeleton.tsx'
-import { INews } from '../../../../entities/news'
+import { INews } from '@/entities/news'
+import { withSkeleton } from '@/shared/hoks/withSkeleton.tsx'
 
 interface Props {
   news?: Array<INews>

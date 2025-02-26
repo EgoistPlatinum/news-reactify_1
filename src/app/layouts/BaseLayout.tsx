@@ -1,7 +1,7 @@
-import { useTheme } from '../providers/ThemeProvider.tsx'
-import Header from '../../widgets/header/ui/Header/Header.tsx'
-import Page from '../../pages/main/ui/Page.tsx'
 import '../index.css'
+import { useTheme } from '@/app/providers/ThemeProvider.tsx'
+import { Header } from '@/widgets/header/ui'
+import Page from '@/pages/main/ui/Page.tsx'
 
 function BaseLayout() {
   const { isDark } = useTheme()

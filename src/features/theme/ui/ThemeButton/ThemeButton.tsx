@@ -1,6 +1,6 @@
-import { themeIcons } from '../../../../shared/assets'
-import { useTheme } from '../../../../app/providers/ThemeProvider.tsx'
 import styles from './styles.module.css'
+import { useTheme } from '@/app/providers/ThemeProvider.tsx'
+import { themeIcons } from '@/shared/assets'
 
 export default function ThemeButton() {
   const { isDark, toggleTheme } = useTheme()

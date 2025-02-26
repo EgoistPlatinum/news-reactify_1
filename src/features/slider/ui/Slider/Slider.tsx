@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
 import React, { useRef } from 'react'
-import { useTheme } from '../../../../app/providers/ThemeProvider.tsx'
+import { useTheme } from '@/app/providers/ThemeProvider.tsx'
 
 interface Props {
   children: React.ReactElement
