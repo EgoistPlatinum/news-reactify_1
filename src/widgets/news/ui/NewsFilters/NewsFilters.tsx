@@ -3,25 +3,24 @@ import Slider from '../../../../features/slider/ui/Slider/Slider.tsx'
 import Categories from '../../../../features/category/ui/Categories/Categories.tsx'
 import Search from '../../../../features/search/ui/Search/Search.tsx'
 import { IFilters } from '@/shared/interfaces'
-import { useGetCategoriesQuery } from '@/entities/category/api/categoriesApi.ts'
 import { useAppDispatch } from '@/app/appStore.ts'
 import { setFilters } from '@/entities/news/model/newsSlice.ts'
+import { CategoriesType } from '@/entities/category'
 
 interface Props {
-  filters?: IFilters
+  filters: IFilters
+  categories: Array<CategoriesType>
 }
 
-const NewsFilters = ({ filters }: Props) => {
-  const { data: dataCategories } = useGetCategoriesQuery(null)
-
+const NewsFilters = ({ filters, categories }: Props) => {
   const dispatch = useAppDispatch()
 
   return (
     <div className={styles.filters}>
-      {dataCategories ? (
+      {categories ? (
         <Slider>
           <Categories
-            categories={dataCategories.categories}
+            categories={categories}
             selectedCategory={filters!.category}
             setSelectedCategory={category =>
               dispatch(setFilters({ key: 'category', value: category }))

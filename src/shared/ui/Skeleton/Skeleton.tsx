@@ -8,12 +8,12 @@ interface Props {
 }
 
 const Skeleton = (props: Props) => {
-  const { count = 1, type = 'banner', direction = 'colum' } = props
+  const { count = 1, type = 'banner', direction = 'column' } = props
 
   return (
     <>
       {count > 1 ? (
-        <ul className={direction === 'colum' ? styles.columList : styles.rowList}>
+        <ul className={direction === 'column' ? styles.columList : styles.rowList}>
           {[...Array(count)].map((_, index) => (
             <li
               key={index}
