@@ -1,5 +1,4 @@
 import LatestNews from './LatestNews/LatestNews.tsx'
-import NewsByFilters from './NewsByFilters/NewsByFilters.tsx'
-import NewsFilters from './NewsFilters/NewsFilters.tsx'
+import NewsByFilters from '@/pages/main/ui/NewsByFilters/NewsByFilters.tsx'
 
-export { NewsFilters, LatestNews, NewsByFilters }
+export { LatestNews, NewsByFilters }
