@@ -1,12 +1,12 @@
 import styles from './styles.module.css'
-import { TOTAL_PAGES } from '../../../../shared/constants/constants.ts'
 import NewsList from '../../../../widgets/news/ui/NewsList/NewsList.tsx'
 import useDebounce from '../../../../shared/hooks/useDebounce.tsx'
 import Pagination from '../../../../features/pagination/ui/Pagination/Pagination.tsx'
-import { useGetNewsQuery } from '../../../../entities/news/api/newsApi.ts'
-import { setFilters } from '../../../../entities/news/model/newsSlice.ts'
-import { useAppDispatch, useAppSelector } from '../../../../app/appStore.ts'
 import NewsFilters from '../NewsFilters/NewsFilters.tsx'
+import { useAppDispatch, useAppSelector } from '@/app/appStore.ts'
+import { useGetNewsQuery } from '@/entities/news/api/newsApi.ts'
+import { TOTAL_PAGES } from '@/shared/constants/constants.ts'
+import { setFilters } from '@/entities/news/model/newsSlice.ts'
 
 const NewsByFilters = () => {
   const dispatch = useAppDispatch()

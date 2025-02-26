@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
-import { useTheme } from '../../../../app/providers/ThemeProvider.tsx'
 import { IPaginationProps } from '../../model/types.ts'
+import { useTheme } from '@/app/providers/ThemeProvider.tsx'
 
 const PaginationButton = (props: IPaginationProps) => {
   const {

@@ -1,7 +1,7 @@
-import { formatDate } from '../../../../shared/helpers/formatDate.ts'
 import styles from './styles.module.css'
-import { useTheme } from '../../../../app/providers/ThemeProvider.tsx'
 import { ThemeButton } from '../../../../features/theme'
+import { useTheme } from '@/app/providers/ThemeProvider.tsx'
+import { formatDate } from '@/shared/helpers/formatDate.ts'
 
 const Header = () => {
   const { isDark } = useTheme()

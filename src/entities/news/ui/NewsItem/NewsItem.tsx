@@ -1,6 +1,6 @@
 import styles from './styles.module.css'
-import { formatTimeAgo } from '../../../../shared/helpers/formatTimeAgo.ts'
-import { INews } from '../../model/types.ts'
+import { INews } from '@/entities/news'
+import { formatTimeAgo } from '@/shared/helpers/formatTimeAgo.ts'
 
 interface Props {
   item: INews

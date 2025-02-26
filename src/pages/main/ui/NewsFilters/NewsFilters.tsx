@@ -1,11 +1,11 @@
 import styles from './styles.module.css'
-import { IFilters } from '../../../../shared/interfaces'
-import { useAppDispatch } from '../../../../app/appStore.ts'
 import Slider from '../../../../features/slider/ui/Slider/Slider.tsx'
 import Categories from '../../../../features/category/ui/Categories/Categories.tsx'
-import { setFilters } from '../../../../entities/news/model/newsSlice.ts'
 import Search from '../../../../features/search/ui/Search/Search.tsx'
-import { useGetCategoriesQuery } from '../../../../entities/category/api/categoriesApi.ts'
+import { IFilters } from '@/shared/interfaces'
+import { useGetCategoriesQuery } from '@/entities/category/api/categoriesApi.ts'
+import { useAppDispatch } from '@/app/appStore.ts'
+import { setFilters } from '@/entities/news/model/newsSlice.ts'
 
 interface Props {
   filters?: IFilters

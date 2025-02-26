@@ -1,5 +1,5 @@
 import styles from './styles.module.css'
-import { useTheme } from '../../../../app/providers/ThemeProvider.tsx'
+import { useTheme } from '@/app/providers/ThemeProvider.tsx'
 
 interface Props {
   keywords: string
