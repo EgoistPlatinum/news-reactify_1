@@ -1,20 +1,22 @@
 import styles from './styles.module.css'
-import NewsItem from '../../../../entities/news/ui/NewsItem/NewsItem.tsx'
 import { INews } from '@/entities/news'
 import { withSkeleton } from '@/shared/hoks/withSkeleton.tsx'
+import NewsCard from '@/entities/news/ui/NewsCard/NewsCard.tsx'
 
 interface Props {
   news?: Array<INews>
+  type?: 'banner' | 'item'
+  direction?: 'row' | 'column'
 }
 
-function NewsList({ news }: Props) {
+function NewsList({ news, type = 'item' }: Props) {
   return (
-    <ul className={styles.list}>
-      {news?.map(item => <NewsItem key={item.id} item={item} />)}
+    <ul className={`${type === 'item' ? styles.items : styles.banners}`}>
+      {news?.map(item => <NewsCard key={item.id} item={item} type={type} />)}
     </ul>
   )
 }
 
-const NewsListWithSkeleton = withSkeleton<Props>(NewsList, 'item', 10)
+const NewsListWithSkeleton = withSkeleton<Props>(NewsList, 10)
 
 export default NewsListWithSkeleton
