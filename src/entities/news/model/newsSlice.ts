@@ -1,16 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { IFilters } from '../../../shared/interfaces'
-import { PAGE_SIZE } from '../../../shared/constants/constants.ts'
 import { INews } from './types.ts'
+import { IFilters } from '@/shared/interfaces'
+import { PAGE_SIZE } from '@/shared/constants/constants.ts'
 
 interface State {
   news: Array<INews>
+  currentNews: INews | null
   filters: IFilters
 }
 
 const initialState: State = {
   news: [],
+  currentNews: null,
   filters: {
     page_size: PAGE_SIZE,
     page_number: 1,
@@ -26,6 +28,11 @@ export const newsSlice = createSlice({
     setNews: (state, action: PayloadAction<Array<INews>>) => {
       state.news = action.payload
     },
+
+    setCurrentNews: (state, action: PayloadAction<INews | null>) => {
+      state.currentNews = action.payload
+    },
+
     setFilters: (
       state,
       action: PayloadAction<{ key: string; value: string | null | number }>,
@@ -36,6 +43,6 @@ export const newsSlice = createSlice({
   },
 })
 
-export const { setNews, setFilters } = newsSlice.actions
+export const { setNews, setFilters, setCurrentNews } = newsSlice.actions
 
 export default newsSlice.reducer

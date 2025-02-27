@@ -3,13 +3,14 @@ import { StrictMode } from 'react'
 import { ThemeProvider } from './providers/ThemeProvider.tsx'
 import { Provider } from 'react-redux'
 import { store } from './appStore.ts'
-import BaseLayout from './layouts/BaseLayout.tsx'
+import { RouterProvider } from 'react-router-dom'
+import { appRouter } from '@/app/appRouter.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <ThemeProvider>
       <Provider store={store}>
-        <BaseLayout />
+        <RouterProvider router={appRouter} />
       </Provider>
     </ThemeProvider>
   </StrictMode>,
